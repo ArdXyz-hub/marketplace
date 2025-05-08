@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Autoplay Audio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio dengan Tombol</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Audio Autoplay</h1>
+    <h1>Putar Lagu dengan Tombol</h1>
 
-  <audio autoplay>
-    <source src="sound.mp3" type="audio/mpeg">
-    Browser Anda tidak mendukung audio.
-  </audio>
+    <!-- Tombol untuk memulai audio -->
+    <button id="playButton">Putar Audio</button>
+
+    <!-- Elemen audio -->
+    <audio id="audioPlayer">
+        <source src="audio_file.mp3" type="audio/mp3">
+        Browser Anda tidak mendukung elemen audio.
+    </audio>
+
+    <script>
+        // Mendapatkan elemen tombol dan audio
+        const playButton = document.getElementById('playButton');
+        const audioPlayer = document.getElementById('audioPlayer');
+
+        // Event listener untuk tombol putar
+        playButton.addEventListener('click', function() {
+            // Memutar atau menjeda audio saat tombol ditekan
+            if (audioPlayer.paused) {
+                audioPlayer.play();
+                playButton.textContent = 'Jeda Audio'; // Mengubah teks tombol
+            } else {
+                audioPlayer.pause();
+                playButton.textContent = 'Putar Audio'; // Mengubah teks tombol
+            }
+        });
+    </script>
 </body>
 </html>
