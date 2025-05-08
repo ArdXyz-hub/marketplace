@@ -124,11 +124,11 @@ a.bg-grey:hover, a.bg-grey:focus {
 }
 
 .bg-light {
-  background-color: #2D2B3A !important;
+  background-color: #1d1b25 !important;
 }
 
 a.bg-light:hover, a.bg-light:focus {
-  background-color: #EDECF5 !important;
+  background-color: #1d1b25 !important;
 }
 
 .bg-dark {
