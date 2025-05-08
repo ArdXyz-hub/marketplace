@@ -1,34 +1,105 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verifikasi Kebijakan</title>
-    <link rel="stylesheet" href="../assets/css/verif.css"> <!-- Menghubungkan file CSS eksternal -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Verifikasi Keamanan</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .verification-box {
+      background: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #3498db;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin: 20px auto;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg);}
+      100% { transform: rotate(360deg);}
+    }
+
+    .checkmark {
+      display: none;
+      font-size: 48px;
+      color: #2ecc71;
+      margin: 20px auto;
+      animation: pop 0.3s ease-out forwards;
+    }
+
+    @keyframes pop {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    .btn-lanjut {
+      background-color: #007bff;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: not-allowed;
+      opacity: 0.6;
+      margin-top: 20px;
+      transition: background-color 0.3s, opacity 0.3s;
+    }
+
+    .btn-lanjut.active {
+      cursor: pointer;
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
 
-<div class="policy-container">
-    <h2>Verifikasi Kebijakan</h2>
-    <p class="policy-text">Dengan melanjutkan, Anda menyetujui <a href="#">Kebijakan Privasi</a> dan <a href="#">Syarat & Ketentuan</a> kami.</p>
-    
-    <div class="checkbox-label">
-        <input type="checkbox" id="agree" />
-        <label for="agree">Saya setuju dengan kebijakan di atas.</label>
-    </div>
-
-    <button class="agree-button" disabled onclick="window.location.href='beranda.html';">Setuju dan Lanjutkan</button>
-    
-    <p class="message">Pastikan Anda membaca kebijakan kami sebelum melanjutkan.</p>
+<div class="verification-box">
+  <h2>Memverifikasi keamanan...</h2>
+  <div class="loader" id="loader"></div>
+  <div class="checkmark" id="check">✔</div>
+  <button id="btnLanjut" class="btn-lanjut" disabled>Lanjutkan</button>
 </div>
 
 <script>
-    const checkbox = document.getElementById("agree");
-    const button = document.querySelector(".agree-button");
+  // Simulasi proses verifikasi keamanan selama 4 detik
+  setTimeout(() => {
+    document.getElementById("loader").style.display = "none";
+    const check = document.getElementById("check");
+    check.style.display = "block";
+    check.classList.add("pop");
 
-    checkbox.addEventListener("change", function() {
-        button.disabled = !checkbox.checked;
+    const btn = document.getElementById("btnLanjut");
+    btn.disabled = false;
+    btn.classList.add("active");
+    btn.style.cursor = "pointer";
+
+    // Ganti warna saat aktif
+    btn.addEventListener("click", () => {
+      window.location.href = "beranda.html";
     });
+
+  }, 4000);
 </script>
 
 </body>
