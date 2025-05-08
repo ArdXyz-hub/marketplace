@@ -17,7 +17,7 @@
   --danger: #FF4943;
   --grey: #B4B2C5;
   --dark: #2D2B3A;
-  --light: #F6F5FC;
+  --light: #2D2B3A;
 }
 
 body {
@@ -124,7 +124,7 @@ a.bg-grey:hover, a.bg-grey:focus {
 }
 
 .bg-light {
-  background-color: #F6F5FC !important;
+  background-color: #2D2B3A !important;
 }
 
 a.bg-light:hover, a.bg-light:focus {
