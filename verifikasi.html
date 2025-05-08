@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifikasi Kebijakan</title>
+    <style>
+        /* Menggunakan Flexbox untuk menyusun konten di tengah layar */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .policy-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .policy-text {
+            text-align: left;
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin: 15px 0;
+        }
+
+        .checkbox-label input {
+            margin-right: 10px;
+        }
+
+        .agree-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .agree-button:hover {
+            background-color: #45a049;
+        }
+
+        .message {
+            margin-top: 15px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<div class="policy-container">
+    <h2>Verifikasi Kebijakan</h2>
+    <p class="policy-text">Dengan melanjutkan, Anda menyetujui <a href="#">Kebijakan Privasi</a> dan <a href="#">Syarat & Ketentuan</a> kami.</p>
+    
+    <div class="checkbox-label">
+        <input type="checkbox" id="agree" />
+        <label for="agree">Saya setuju dengan kebijakan di atas.</label>
+    </div>
+
+    <button class="agree-button" disabled onclick="window.location.href='index.html';">Setuju dan Lanjutkan</button>
+    
+    <p class="message">Pastikan Anda membaca kebijakan kami sebelum melanjutkan.</p>
+</div>
+
+<script>
+    const checkbox = document.getElementById("agree");
+    const button = document.querySelector(".agree-button");
+
+    checkbox.addEventListener("change", function() {
+        button.disabled = !checkbox.checked;
+    });
+</script>
+
+</body>
+  </html>
+  
