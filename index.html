@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifikasi Kebijakan</title>
+    <link rel="stylesheet" href="../assets/css/verif.css"> <!-- Menghubungkan file CSS eksternal -->
+</head>
+<body>
+
+<div class="policy-container">
+    <h2>Verifikasi Kebijakan</h2>
+    <p class="policy-text">Dengan melanjutkan, Anda menyetujui <a href="#">Kebijakan Privasi</a> dan <a href="#">Syarat & Ketentuan</a> kami.</p>
+    
+    <div class="checkbox-label">
+        <input type="checkbox" id="agree" />
+        <label for="agree">Saya setuju dengan kebijakan di atas.</label>
+    </div>
+
+    <button class="agree-button" disabled onclick="window.location.href='beranda.html';">Setuju dan Lanjutkan</button>
+    
+    <p class="message">Pastikan Anda membaca kebijakan kami sebelum melanjutkan.</p>
+</div>
+
+<script>
+    const checkbox = document.getElementById("agree");
+    const button = document.querySelector(".agree-button");
+
+    checkbox.addEventListener("change", function() {
+        button.disabled = !checkbox.checked;
+    });
+</script>
+
+</body>
+</html>
