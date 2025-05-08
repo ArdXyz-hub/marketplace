@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Keluar dari Teyvat...</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: radial-gradient(circle at center, #2b2e4a, #1a1a2e);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+      color: #fff;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-out;
+    }
+
+    .loader {
+      border: 5px solid rgba(255,255,255,0.2);
+      border-top: 5px solid #00f2ff;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto;
+      animation: spin 1s linear infinite;
+    }
+
+    .checkmark {
+      font-size: 50px;
+      color: #00e676;
+      margin-top: 20px;
+      display: none;
+      animation: pop 0.4s ease-out forwards;
+    }
+
+    .success-text {
+      display: none;
+      font-size: 20px;
+      margin-top: 10px;
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pop {
+      from { transform: scale(0); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container" id="main">
+  <h1 id="text">Keluar dari Teyvat...</h1>
+  <div class="loader" id="loader"></div>
+  <div class="checkmark" id="checkmark">✔</div>
+  <div class="success-text" id="success">Berhasil keluar</div>
+</div>
+
+<script>
+  // Setelah 4 detik, ganti loading jadi centang dan teks sukses
+  setTimeout(() => {
+    document.getElementById('loader').style.display = 'none';
+    document.getElementById('text').style.display = 'none';
+    document.getElementById('checkmark').style.display = 'block';
+    document.getElementById('success').style.display = 'block';
+  }, 4000);
+
+  // Setelah 6 detik, pindah ke contact.html
+  setTimeout(() => {
+    window.location.href = "contact.html";
+  }, 6000);
+</script>
+
+</body>
+</html>
